@@ -1,14 +1,15 @@
-class Customer {
+import Address from "./address";
+
+export default class Customer {
 
     _id: string;
     _name: string;
-    _address: string;
+    _address!: Address;
     _active= false;
 
-    constructor(id: string, name: string, address: string) {
+    constructor(id: string, name: string) {
         this._id = id;
         this._name = name;
-        this._address = address;
         this.validate();
     }
 
@@ -27,13 +28,17 @@ class Customer {
     }
 
     activate() {
-        if (this._address.length === 0) {
+        if (this._address === undefined) {
             throw new Error('Endreço é obrigatório para ativar o cliente!')
         }
     }
 
     deactive() {
         this._active = false;
+    }
+
+    set Address(adreess: Address) {
+        this._address = adreess;
     }
 
 }
