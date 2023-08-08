@@ -25,12 +25,12 @@ describe("Order test", () => {
     });
 
     it('Deve calcular o total', () => {
-        const item = new OrderItem("i1", "maça",5);
-        const item2 = new OrderItem("i2", "bolo",35);
+        const item = new OrderItem("i1", "maça",5, 2, "D66");
+        const item2 = new OrderItem("i2", "bolo",35, 10, "D67");
         const order = new Order('o1', 'Zé', [item, item2])
 
         const total = order.total()
-        expect(total).toBe(40)
+        expect(total).toBe(360)
     });
 
 });
