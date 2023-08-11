@@ -18,6 +18,10 @@ export default class Customer {
         return this._name;
     }
 
+    get address(): Address {
+        return this._address;
+    }
+
     get id(): string {
         return this._id;
     }
@@ -33,6 +37,11 @@ export default class Customer {
         if (this._id.length === 0) {
             throw new Error('O ID é obrigatório!');           
         }
+    }
+
+    changeAddress(address: Address) {
+        this._address = address;
+        this.validate();
     }
 
     changeName(name: string) {
