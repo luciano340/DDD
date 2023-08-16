@@ -28,7 +28,7 @@ describe("Testes repositório de cliente", () => {
     const customer = new Customer("123", "Customer 1");
     const address = new Address("Street 1", 1, "Zipcode 1", "City 1");
     customer.changeAddress(address);
-    console.log(address.street);
+    
     await customerRepository.create(customer);
     const customerModel = await CustomerModel.findOne({ where: { id: "123" } });
 

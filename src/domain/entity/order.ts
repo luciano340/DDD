@@ -14,6 +14,27 @@ export default class Order {
         this.validate();
     }
 
+    get id(): string {
+        return this._id;
+    }
+
+    get customerId(): string{
+        return this._customerID;
+    }
+
+    get items(): OrderItem[] {
+        return this._items;
+    }
+
+    addItemToOrder(orderitem: OrderItem): void {
+        this._items.push(orderitem);
+        this.validate();
+    }
+    changeCustomerId(id: string): void {
+        this._customerID = id;
+        this.validate();
+    }
+
     validate(): boolean {
         if (this._id.length === 0){
             throw new Error('O id é obrigatório!');
